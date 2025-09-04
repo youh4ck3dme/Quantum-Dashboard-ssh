@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quantum AI Command Center</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto+Mono:wght@400;500&family=Exo+2:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              'sans': ['Exo 2', 'sans-serif'],
+              'mono': ['Roboto Mono', 'monospace'],
+              'display': ['Orbitron', 'sans-serif'],
+            },
+            colors: {
+              'quantum-dark': '#0a0e1a',
+              'quantum-blue': '#2c67f2',
+              'quantum-cyan': '#00d1ff',
+              'quantum-purple': '#a359ff',
+              'quantum-panel': '#111827',
+              'quantum-border': 'rgba(44, 103, 242, 0.3)',
+            },
+            animation: {
+              'pulse-glow': 'pulse-glow 2s infinite ease-in-out',
+              'text-focus-in': 'text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both',
+              'scanline': 'scanline 10s linear infinite',
+              'blink': 'blink 1s step-end infinite',
+            },
+            keyframes: {
+              'pulse-glow': {
+                '0%, 100%': { boxShadow: '0 0 10px #2c67f2, 0 0 20px #2c67f2' },
+                '50%': { boxShadow: '0 0 20px #00d1ff, 0 0 40px #00d1ff' },
+              },
+               'text-focus-in': {
+                '0%': { filter: 'blur(12px)', opacity: '0' },
+                '100%': { filter: 'blur(0px)', opacity: '1' },
+              },
+              'scanline': {
+                '0%': { transform: 'translateY(-10%)' },
+                '100%': { transform: 'translateY(100%)' },
+              },
+              'blink': {
+                'from, to': { borderColor: 'transparent' },
+                '50%': { borderColor: 'currentColor' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #0a0e1a;
+        background-image:
+          radial-gradient(circle at 25% 25%, rgba(44, 103, 242, 0.2) 0%, transparent 40%),
+          radial-gradient(circle at 75% 75%, rgba(0, 209, 255, 0.15) 0%, transparent 40%);
+      }
+      .scanline-effect {
+        position: relative;
+        overflow: hidden;
+      }
+      .scanline-effect::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0),
+          rgba(255, 255, 255, 0.02) 50%,
+          rgba(255, 255, 255, 0)
+        );
+        animation: scanline 10s linear infinite;
+        opacity: 0.5;
+        pointer-events: none;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "recharts": "https://aistudiocdn.com/recharts@^3.1.2"
+  }
+}
+</script>
+</head>
+  <body class="text-gray-200 font-sans">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

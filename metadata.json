@@ -1,0 +1,5 @@
+{
+  "name": "Quantum AI Command Center",
+  "description": "An administrative dashboard for deploying and managing AI models on the IBM Quantum Cloud, inspired by NASA-level command systems.",
+  "requestFramePermissions": []
+}
